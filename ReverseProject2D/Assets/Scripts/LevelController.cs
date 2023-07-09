@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelController : MonoBehaviour
 {
     public GameObject defeatScreen;
+    public GameObject victoryScreen;
     public List<Sound> sounds;
 
     void Awake()
@@ -17,6 +18,12 @@ public class LevelController : MonoBehaviour
     {
         defeatScreen.SetActive(true);
         PlaySound("Defeat");
+    }
+
+    public void Victory()
+    {
+        victoryScreen.SetActive(true);
+        PlaySound("Victory");
     }
 
     void SetLevelSounds()
