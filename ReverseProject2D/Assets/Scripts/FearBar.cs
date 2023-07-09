@@ -75,6 +75,7 @@ public class FearBar : MonoBehaviour
         }
 
         _textBar.text = _fear + "/" + _fearLimit;
+        Debug.Log("O nivel de medo é " + _textBar.text);
     }
 
     void Defeat()
