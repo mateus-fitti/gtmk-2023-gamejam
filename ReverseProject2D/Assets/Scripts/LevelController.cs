@@ -46,4 +46,14 @@ public class LevelController : MonoBehaviour
         GameController.instance.OnSceneChange(sceneName);
     }
 
+    public void Pause()
+    {
+        GameController.instance.PauseGame();
+    }
+
+    public void UnPause()
+    {
+        GameController.instance.UnPauseGame();
+    }
+
 }

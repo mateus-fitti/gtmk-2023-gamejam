@@ -26,4 +26,14 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void UnPauseGame()
+    {
+        Time.timeScale = 1.0f;
+    }
+
 }
