@@ -65,9 +65,9 @@ public class CharacterMovement : MonoBehaviour
         _lightSource = pos;
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(_mousePos, _followRange);
-    }
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.DrawWireSphere(_mousePos, _followRange);
+    // }
 
 }

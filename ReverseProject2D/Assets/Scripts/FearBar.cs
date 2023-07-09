@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class FearBar : MonoBehaviour
 {
 
-    public TextMeshProUGUI _textBar; // Change to a filler bar
     CharacterMovement cMove; // To get character atributes
+
+    public LevelController levelCtrl;
 
     float _fearRange;
     int _fearLimit = 100;
@@ -15,6 +16,8 @@ public class FearBar : MonoBehaviour
     float _counter = 0f;
     public float _fearDelay = 1.0f;
     public int _fearDefaultVal = 1;
+    public Sprite[] _fearStates;
+    public Image _fearBar;
 
     void Start(){}
 
@@ -66,7 +69,7 @@ public class FearBar : MonoBehaviour
         if (_fear >= _fearLimit)
         {
             _fear = _fearLimit;
-            Defeat();
+            Endgame();
         }
 
         if (_fear <= 0)
@@ -74,13 +77,24 @@ public class FearBar : MonoBehaviour
             _fear = 0;
         }
 
-        _textBar.text = _fear + "/" + _fearLimit;
-        Debug.Log("O nivel de medo é " + _textBar.text);
+        if (_fear <= 30)
+            _fearBar.sprite = _fearStates[0];
+        else if (_fear <= 60)
+            _fearBar.sprite = _fearStates[1];
+        else if (_fear <= 90)
+            _fearBar.sprite = _fearStates[2];
+        else
+            _fearBar.sprite = _fearStates[3];
+
+        // Old bar with text
+        //_textBar.text = _fear + "/" + _fearLimit;
+        //Debug.Log("O nivel de medo é " + _textBar.text);
     }
 
-    void Defeat()
+    void Endgame()
     {
-        // Show defeat screen
+        levelCtrl.Defeat();
+        _fear = 0;
     }
 
 }

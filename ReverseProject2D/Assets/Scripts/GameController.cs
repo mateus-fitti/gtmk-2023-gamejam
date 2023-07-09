@@ -5,8 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public void OnSceneButton(string sceneName)
+
+    public static GameController instance;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    public void OnSceneChange(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
+
 }
