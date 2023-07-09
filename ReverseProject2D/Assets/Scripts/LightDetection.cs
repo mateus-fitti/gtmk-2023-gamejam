@@ -19,7 +19,6 @@ public class LightDetection : MonoBehaviour
     {
         if (collision.gameObject.tag == "LightSource")
         {
-            Debug.Log("LUZ AQUI!");
             cMove.SetLightSource(collision.transform.position);
         }
     }
