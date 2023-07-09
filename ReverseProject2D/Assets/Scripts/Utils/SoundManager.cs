@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
 {
     public AudioMixerGroup mixer;
     public List<Sound> sounds;
+    public float mainVolume = 0.3f;
     
     public static SoundManager instance;
 
@@ -37,7 +38,7 @@ public class SoundManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = mixer;
-            s.source.volume = s.volume;
+            s.source.volume = mainVolume;
             s.source.pitch = s.pitch;
         }
     }
@@ -92,6 +93,8 @@ public class SoundManager : MonoBehaviour
 
     public void SetVolume(Slider bar)
     {
+        mainVolume = bar.value;
+
         foreach (Sound s in sounds)
         {
             if (s == null)
@@ -99,7 +102,7 @@ public class SoundManager : MonoBehaviour
                 Debug.LogWarning("Sound: " + name + " not found!");
                 return;
             }
-            s.source.volume = bar.value;
+            s.source.volume = mainVolume;
         }
     }
     
