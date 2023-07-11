@@ -912,7 +912,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MazeTest
+          m_StringArgument: MazeEnemies
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 845010774}
@@ -2205,7 +2205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5276761461772757240, guid: ec1a64a03e422294b86e0bfb28dcf1e0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -82.5
+      value: -82.499985
       objectReference: {fileID: 0}
     - target: {fileID: 5276761461772757240, guid: ec1a64a03e422294b86e0bfb28dcf1e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
