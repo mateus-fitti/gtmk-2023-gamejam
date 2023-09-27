@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6161997830509399071}
   - component: {fileID: 6517477656412782287}
+  - component: {fileID: 2659897915789810913}
   - component: {fileID: 7927376312152851229}
   - component: {fileID: 5196434779967818615}
+  - component: {fileID: 8705202043411898083}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -26,6 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407479284929499076}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.09, y: -3.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,7 +36,6 @@ Transform:
   m_Children:
   - {fileID: 182721489693813974}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6517477656412782287
 MonoBehaviour:
@@ -50,6 +52,20 @@ MonoBehaviour:
   speed: 1
   range: 3
   safeRange: 2
+--- !u!114 &2659897915789810913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407479284929499076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739f39528248b2d488ebbbba2e8ddf43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  distanceBetween: 3
 --- !u!212 &7927376312152851229
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -137,6 +153,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.46329528
+--- !u!50 &8705202043411898083
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407479284929499076}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6649757178988883337
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,11 +203,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6649757178988883337}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6161997830509399071}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

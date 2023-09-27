@@ -13,7 +13,8 @@ public class EnemyController : MonoBehaviour
     private float range;
     [SerializeField]
     private float safeRange;
-    private void Start() {
+    private void Start()
+    {
         homePos = transform.GetChild(0);
         target = FindObjectOfType<CharacterMovement>().transform;
         ghost = FindObjectOfType<FollowPlayer>().transform;
@@ -21,22 +22,27 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void Update() {
+    private void Update()
+    {
 
-        if(Vector3.Distance(target.position, transform.position) <= range && Vector3.Distance(target.position, transform.position) > 0 && Vector3.Distance(ghost.position, target.position) > safeRange){
-            followPlayer();
-        } 
-        else{
-            goHome();
-        }
+        // if (Vector3.Distance(target.position, transform.position) <= range && Vector3.Distance(target.position, transform.position) > 0 && Vector3.Distance(ghost.position, target.position) > safeRange)
+        // {
+        //     followPlayer();
+        // }
+        // else
+        // {
+        //     goHome();
+        // }
     }
 
-    public void followPlayer(){
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed*Time.deltaTime);
+    public void followPlayer()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
     }
 
-    public void goHome(){
-       transform.position = Vector3.MoveTowards(transform.position, homePos.transform.position, speed*Time.deltaTime);
+    public void goHome()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, homePos.transform.position, speed * Time.deltaTime);
 
     }
 }
