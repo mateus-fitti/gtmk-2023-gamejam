@@ -7,16 +7,17 @@ TagManager:
   - LightSource
   - Abigail
   - MapBounds
+  - Monster
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
   - LightSource
   - MapBounds
-  - 
+  - Walls
   - 
   - 
   - 

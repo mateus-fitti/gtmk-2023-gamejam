@@ -9,14 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6161997830509399071}
-  - component: {fileID: 6517477656412782287}
-  - component: {fileID: 2659897915789810913}
+  - component: {fileID: 5360850062919563932}
   - component: {fileID: 7927376312152851229}
   - component: {fileID: 5196434779967818615}
-  - component: {fileID: 8705202043411898083}
+  - component: {fileID: 2709222640627757737}
   m_Layer: 0
   m_Name: Monster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +36,7 @@ Transform:
   - {fileID: 182721489693813974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6517477656412782287
+--- !u!114 &5360850062919563932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,26 +45,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5407479284929499076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faec81365c45e0944aff594e0394face, type: 3}
+  m_Script: {fileID: 11500000, guid: 1182b001fad092d46b80b13d71a590b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  range: 3
-  safeRange: 2
---- !u!114 &2659897915789810913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5407479284929499076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 739f39528248b2d488ebbbba2e8ddf43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  distanceBetween: 3
+  patrolPointsParent: {fileID: 0}
+  moveSpeed: 1
+  detectionRange: 4
+  maxChaseDistance: 7
+  patrolDelay: 3
+  targetTag: Abigail
 --- !u!212 &7927376312152851229
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fd98b8d5f71de4c47b8264cdba67d9fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a96df61b0617eee46a2be12676025778, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,10 +125,10 @@ CircleCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -153,7 +141,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.46329528
---- !u!50 &8705202043411898083
+--- !u!50 &2709222640627757737
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -179,7 +167,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &6649757178988883337
 GameObject:
   m_ObjectHideFlags: 0

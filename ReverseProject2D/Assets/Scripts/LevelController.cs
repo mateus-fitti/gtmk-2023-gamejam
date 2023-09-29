@@ -16,12 +16,14 @@ public class LevelController : MonoBehaviour
 
     public void Defeat()
     {
+        FreezeGame(true);
         defeatScreen.SetActive(true);
         PlaySound("Defeat");
     }
 
     public void Victory()
     {
+        FreezeGame(true);
         victoryScreen.SetActive(true);
         PlaySound("Victory");
     }
@@ -44,6 +46,12 @@ public class LevelController : MonoBehaviour
     public void OnSceneButton(string sceneName)
     {
         GameController.instance.OnSceneChange(sceneName);
+    }
+
+    public void FreezeGame(bool flag)
+    {
+        if (flag) Time.timeScale = 0f;
+        else Time.timeScale = 1.0f;
     }
 
 }

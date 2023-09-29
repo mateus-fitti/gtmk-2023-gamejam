@@ -18,11 +18,14 @@ public class FearBar : MonoBehaviour
     public int _fearDefaultVal = 1;
     public Sprite[] _fearStates;
     public Image _fearBar;
+    private AudioSource crySound; // Referência ao AudioSource para o som de choro
 
-    void Start(){}
+    void Start() { }
+
 
     void Awake()
-    {   
+    {
+        crySound = GetComponent<AudioSource>();
         cMove = GetComponent<CharacterMovement>();
         _fearRange = cMove._followRange;
         UpdateFear(0);
@@ -41,11 +44,15 @@ public class FearBar : MonoBehaviour
 
         if (dist2 <= _fearRange)
         {
-            fearValue -= _fearDefaultVal;
+            fearValue -= _fearDefaultVal * 2;
         }
         else if (dist1 <= _fearRange)
         {
             fearValue = 0;
+            if (crySound.isPlaying)
+            {
+                crySound.Stop();
+            }
         }
         else
         {
@@ -60,6 +67,8 @@ public class FearBar : MonoBehaviour
 
             UpdateFear(fearValue);
         }
+
+
     }
 
     void UpdateFear(int value)
@@ -78,7 +87,15 @@ public class FearBar : MonoBehaviour
         }
 
         if (_fear <= 30)
+        {
             _fearBar.sprite = _fearStates[0];
+
+            // Parar o som de choro quando a barra de medo estiver abaixo de 30
+            if (crySound.isPlaying)
+            {
+                crySound.Stop();
+            }
+        }
         else if (_fear <= 60)
             _fearBar.sprite = _fearStates[1];
         else if (_fear <= 90)
@@ -86,15 +103,38 @@ public class FearBar : MonoBehaviour
         else
             _fearBar.sprite = _fearStates[3];
 
+        if (_fear > 30)
+        {
+            // Iniciar o som de choro quando a barra de medo estiver maior que 30
+            if (!crySound.isPlaying)
+            {
+                crySound.Play();
+            }
+        }
+
         // Old bar with text
         //_textBar.text = _fear + "/" + _fearLimit;
         //Debug.Log("O nivel de medo é " + _textBar.text);
+    }
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Monster")
+        {
+            this.Endgame();
+        }
     }
 
     void Endgame()
     {
         levelCtrl.Defeat();
         _fear = 0;
+        // Parar o som de choro quando o jogo terminar
+        if (crySound.isPlaying)
+        {
+            crySound.Stop();
+        }
     }
 
 }
