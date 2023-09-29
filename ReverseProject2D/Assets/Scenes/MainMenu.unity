@@ -1660,6 +1660,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 954659760282037087, guid: 04eb2aa71e48cc044ae33a22d54cec64, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2047639804601204466, guid: 04eb2aa71e48cc044ae33a22d54cec64, type: 3}
       propertyPath: m_Camera
       value: 

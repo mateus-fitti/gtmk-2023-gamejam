@@ -50,6 +50,9 @@ public class LevelController : MonoBehaviour
 
     public void FreezeGame(bool flag)
     {
+        Cursor.visible = flag;
+
+
         if (flag) Time.timeScale = 0f;
         else Time.timeScale = 1.0f;
     }

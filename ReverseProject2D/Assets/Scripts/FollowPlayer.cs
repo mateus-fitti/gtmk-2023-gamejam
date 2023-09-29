@@ -9,85 +9,93 @@ public class FollowPlayer : MonoBehaviour
     private Vector3 targetPosition;
 
     private PolygonCollider2D mapBounds;
-    private Vector2 minBounds;
-    private Vector2 maxBounds;
-
+    private Vector2 canvasBoundsMin;
+    private Vector2 canvasBoundsMax;
     private bool isMobile = false; // Flag para verificar se estamos em um dispositivo móvel
 
     private void Start()
     {
         transform.position = new Vector3(-20.5f, -10.5900002f, 0);
-        if (mapBounds)
-        {
-            // Assuming you have a reference to the map bounds object with PolygonCollider2D attached
-            mapBounds = GameObject.Find("MapBounds").GetComponent<PolygonCollider2D>();
+        Cursor.visible = false;
 
-            // Calculate the minimum and maximum bounds of the map
-            CalculateMapBounds();
+        // Tente encontrar o objeto "MapBounds" na cena
+        GameObject mapBoundsObject = GameObject.Find("MapBounds");
+
+        if (mapBoundsObject != null)
+        {
+            // Se o objeto for encontrado, obtenha o componente PolygonCollider2D
+            mapBounds = mapBoundsObject.GetComponent<PolygonCollider2D>();
+
+            if (mapBounds != null)
+            {
+                // Se o componente for encontrado, calcule os limites do mapa
+                CalculateMapBounds();
+            }
+            else
+            {
+                // Se o componente não for encontrado, imprima uma mensagem de erro
+                Debug.LogError("PolygonCollider2D component not found on MapBounds object.");
+            }
+        }
+        else
+        {
+            // Se o objeto "MapBounds" não for encontrado, calcule os limites do canvas
+            CalculateCanvasBounds();
         }
 
-        // Verifica se estamos em um dispositivo móvel
+        // Verifique se estamos em um dispositivo móvel
         isMobile = Application.isMobilePlatform;
     }
 
     private void CalculateMapBounds()
     {
-        // Get the points that make up the polygon collider's path
         Vector2[] path = mapBounds.GetPath(0);
 
-        // Set the initial min and max values to the first point
-        minBounds = path[0];
-        maxBounds = path[0];
+        Vector2 minBounds = path[0];
+        Vector2 maxBounds = path[0];
 
-        // Iterate over the path points to find the minimum and maximum values
         for (int i = 1; i < path.Length; i++)
         {
             minBounds = Vector2.Min(minBounds, path[i]);
             maxBounds = Vector2.Max(maxBounds, path[i]);
         }
+
+        // Defina os limites com base nos limites do mapa
+        canvasBoundsMin = minBounds;
+        canvasBoundsMax = maxBounds;
+    }
+
+    private void CalculateCanvasBounds()
+    {
+        // Obtenha o tamanho do canvas em cena
+        Canvas canvas = FindObjectOfType<Canvas>();
+        RectTransform canvasRect = canvas.GetComponent<RectTransform>();
+        Vector2 canvasSize = canvasRect.sizeDelta;
+
+        // Calcule os limites do canvas com base em seu tamanho
+        canvasBoundsMin = -canvasSize / 2;
+        canvasBoundsMax = canvasSize / 2;
     }
 
     private void Update()
     {
-        if (mapBounds)
+        if (isMobile)
         {
-            if (isMobile)
+            if (Input.touchCount > 0)
             {
-                if (Input.touchCount > 0)
-                {
-                    // Use o primeiro toque para definir a posição alvo
-                    Vector2 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-
-                    // Clamp a posição do toque dentro dos limites do mapa
-                    Vector2 clampedPosition = new Vector2(
-                        Mathf.Clamp(touchPosition.x, minBounds.x, maxBounds.x),
-                        Mathf.Clamp(touchPosition.y, minBounds.y, maxBounds.y)
-                    );
-
-                    targetPosition = clampedPosition;
-                }
-            }
-            else
-            {
-                // Para plataformas não móveis, mantenha o comportamento original com o mouse
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                // Clamp a posição do mouse dentro dos limites do mapa
-                Vector2 clampedPosition = new Vector2(
-                    Mathf.Clamp(mousePosition.x, minBounds.x, maxBounds.x),
-                    Mathf.Clamp(mousePosition.y, minBounds.y, maxBounds.y)
-                );
-
-                targetPosition = clampedPosition;
+                Vector2 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                targetPosition = touchPosition;
             }
         }
         else
         {
-            // Mantenha o comportamento original para quando não houver limites de mapa definidos
-            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            cursorPosition.z = 0f; // Mantém a posição do cursor no plano 2D
-            targetPosition = cursorPosition;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetPosition = mousePosition;
         }
+
+        // Clamp a posição do personagem dentro dos limites calculados
+        targetPosition.x = Mathf.Clamp(targetPosition.x, canvasBoundsMin.x, canvasBoundsMax.x);
+        targetPosition.y = Mathf.Clamp(targetPosition.y, canvasBoundsMin.y, canvasBoundsMax.y);
     }
 
     private void FixedUpdate()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -18,6 +19,20 @@ public class GameController : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Button pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
+
+            // Verifica se o botão não é nulo e, em seguida, simula o clique nele
+            if (pauseButton != null)
+            {
+                pauseButton.onClick.Invoke();
+            }
         }
     }
 

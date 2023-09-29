@@ -1806,7 +1806,7 @@ Transform:
   m_GameObject: {fileID: 1502436074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.548876, y: -4.75884, z: -10}
+  m_LocalPosition: {x: -4.542837, y: -4.75886, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15376,6 +15376,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 649602137}
@@ -15392,6 +15396,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: Stop
       objectReference: {fileID: 0}
@@ -15400,7 +15408,15 @@ PrefabInstance:
       value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
