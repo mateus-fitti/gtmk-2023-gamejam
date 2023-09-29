@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
 
+    private bool _gameStarted = false;
+
     void Awake()
     {
         if (instance != null)
@@ -24,7 +26,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && this.GetGameStarted())
         {
             Button pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
 
@@ -38,6 +40,7 @@ public class GameController : MonoBehaviour
 
     public void OnSceneChange(string sceneName)
     {
+        SetGameStarted(false);
         SceneManager.LoadScene(sceneName);
     }
 
@@ -51,4 +54,14 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+
+    public bool GetGameStarted()
+    {
+        return _gameStarted;
+    }
+
+    public void SetGameStarted(bool newValue)
+    {
+        _gameStarted = newValue;
+    }
 }

@@ -27,6 +27,7 @@ public class FearBar : MonoBehaviour
 
     void Awake()
     {
+        GameController.instance.SetGameStarted(true);
         crySound = GetComponent<AudioSource>();
         cMove = GetComponent<CharacterMovement>();
         _fearRange = cMove._followRange;
