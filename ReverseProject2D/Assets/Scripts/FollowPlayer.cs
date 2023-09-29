@@ -8,14 +8,65 @@ public class FollowPlayer : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    private PolygonCollider2D mapBounds;
+    private Vector2 minBounds;
+    private Vector2 maxBounds;
+
+    private void Start()
+    {
+        if (mapBounds)
+        {
+            // Assuming you have a reference to the map bounds object with PolygonCollider2D attached
+            mapBounds = GameObject.Find("MapBounds").GetComponent<PolygonCollider2D>();
+
+            // Calculate the minimum and maximum bounds of the map
+            CalculateMapBounds();
+        }
+    }
+
+    private void CalculateMapBounds()
+    {
+        // Get the points that make up the polygon collider's path
+        Vector2[] path = mapBounds.GetPath(0);
+
+        // Set the initial min and max values to the first point
+        minBounds = path[0];
+        maxBounds = path[0];
+
+        // Iterate over the path points to find the minimum and maximum values
+        for (int i = 1; i < path.Length; i++)
+        {
+            minBounds = Vector2.Min(minBounds, path[i]);
+            maxBounds = Vector2.Max(maxBounds, path[i]);
+        }
+    }
+
+
     private void Update()
     {
-        // Obtém a posição do cursor na tela
-        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        cursorPosition.z = 0f; // Mantém a posição do cursor no plano 2D
+        if (mapBounds)
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Define a posição alvo como a posição do cursor
-        targetPosition = cursorPosition;
+            // Clamp the mouse position within the map bounds
+            Vector2 clampedPosition = new Vector2(
+                Mathf.Clamp(mousePosition.x, minBounds.x, maxBounds.x),
+                Mathf.Clamp(mousePosition.y, minBounds.y, maxBounds.y)
+            );
+
+            // Move the character to the clamped position
+            transform.position = clampedPosition;
+        }
+        else
+        {
+
+            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            cursorPosition.z = 0f; // Mantém a posição do cursor no plano 2D
+                                   // Define a posição alvo como a posição do cursor
+            targetPosition = cursorPosition;
+            // Clamp the mouse position within the map bounds
+        }
+
     }
 
     private void FixedUpdate()
