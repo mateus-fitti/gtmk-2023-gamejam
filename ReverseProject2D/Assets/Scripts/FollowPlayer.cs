@@ -12,8 +12,11 @@ public class FollowPlayer : MonoBehaviour
     private Vector2 minBounds;
     private Vector2 maxBounds;
 
+    private bool isMobile = false; // Flag para verificar se estamos em um dispositivo móvel
+
     private void Start()
     {
+        transform.position = new Vector3(-20.5f, -10.5900002f, 0);
         if (mapBounds)
         {
             // Assuming you have a reference to the map bounds object with PolygonCollider2D attached
@@ -22,6 +25,9 @@ public class FollowPlayer : MonoBehaviour
             // Calculate the minimum and maximum bounds of the map
             CalculateMapBounds();
         }
+
+        // Verifica se estamos em um dispositivo móvel
+        isMobile = Application.isMobilePlatform;
     }
 
     private void CalculateMapBounds()
@@ -41,32 +47,47 @@ public class FollowPlayer : MonoBehaviour
         }
     }
 
-
     private void Update()
     {
         if (mapBounds)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (isMobile)
+            {
+                if (Input.touchCount > 0)
+                {
+                    // Use o primeiro toque para definir a posição alvo
+                    Vector2 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 
-            // Clamp the mouse position within the map bounds
-            Vector2 clampedPosition = new Vector2(
-                Mathf.Clamp(mousePosition.x, minBounds.x, maxBounds.x),
-                Mathf.Clamp(mousePosition.y, minBounds.y, maxBounds.y)
-            );
+                    // Clamp a posição do toque dentro dos limites do mapa
+                    Vector2 clampedPosition = new Vector2(
+                        Mathf.Clamp(touchPosition.x, minBounds.x, maxBounds.x),
+                        Mathf.Clamp(touchPosition.y, minBounds.y, maxBounds.y)
+                    );
 
-            // Move the character to the clamped position
-            transform.position = clampedPosition;
+                    targetPosition = clampedPosition;
+                }
+            }
+            else
+            {
+                // Para plataformas não móveis, mantenha o comportamento original com o mouse
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                // Clamp a posição do mouse dentro dos limites do mapa
+                Vector2 clampedPosition = new Vector2(
+                    Mathf.Clamp(mousePosition.x, minBounds.x, maxBounds.x),
+                    Mathf.Clamp(mousePosition.y, minBounds.y, maxBounds.y)
+                );
+
+                targetPosition = clampedPosition;
+            }
         }
         else
         {
-
+            // Mantenha o comportamento original para quando não houver limites de mapa definidos
             Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             cursorPosition.z = 0f; // Mantém a posição do cursor no plano 2D
-                                   // Define a posição alvo como a posição do cursor
             targetPosition = cursorPosition;
-            // Clamp the mouse position within the map bounds
         }
-
     }
 
     private void FixedUpdate()
@@ -75,5 +96,4 @@ public class FollowPlayer : MonoBehaviour
         Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.fixedDeltaTime);
         transform.position = smoothPosition;
     }
-
 }
