@@ -18,6 +18,8 @@ public class FearBar : MonoBehaviour
     public int _fearDefaultVal = 1;
     public Sprite[] _fearStates;
     public Image _fearBar;
+
+    private bool _safeZone = true;
     private AudioSource crySound; // Referência ao AudioSource para o som de choro
 
     void Start() { }
@@ -33,6 +35,7 @@ public class FearBar : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(_safeZone);
         Vector2 mousePos = cMove.GetMousePosition();
         Vector2 charPos = transform.position;
         Vector2 lightPos = cMove.GetLightSource();
@@ -44,10 +47,16 @@ public class FearBar : MonoBehaviour
 
         if (dist2 <= _fearRange)
         {
+            SetSafeZone(true);
             fearValue -= _fearDefaultVal * 2;
+            if (crySound.isPlaying)
+            {
+                crySound.Stop();
+            }
         }
         else if (dist1 <= _fearRange)
         {
+            SetSafeZone(false);
             fearValue = 0;
             if (crySound.isPlaying)
             {
@@ -56,6 +65,7 @@ public class FearBar : MonoBehaviour
         }
         else
         {
+            SetSafeZone(false);
             fearValue += _fearDefaultVal;
         }
 
@@ -115,6 +125,16 @@ public class FearBar : MonoBehaviour
         // Old bar with text
         //_textBar.text = _fear + "/" + _fearLimit;
         //Debug.Log("O nivel de medo é " + _textBar.text);
+    }
+
+    public bool GetSafeZone()
+    {
+        return _safeZone;
+    }
+
+    public void SetSafeZone(bool newValue)
+    {
+        _safeZone = newValue;
     }
 
 

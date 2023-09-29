@@ -16,6 +16,9 @@ public class EnemyPatrol : MonoBehaviour
     private bool isChasing;
     private float patrolTimer;
 
+    private FearBar fearBar;
+
+
     private void Start()
     {
         // Obtenha os pontos de patrulha a partir do GameObject "patrolPointsParent"
@@ -35,7 +38,11 @@ public class EnemyPatrol : MonoBehaviour
         if (abigail != null)
         {
             target = abigail.transform;
+            fearBar = abigail.GetComponent<FearBar>();
+            Debug.Log(fearBar);
         }
+
+
     }
 
     private void Update()
@@ -50,7 +57,7 @@ public class EnemyPatrol : MonoBehaviour
                 this.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
 
                 // Se o inimigo estiver perseguindo o alvo, verifique a distância de perseguição máxima
-                if (distanceToTarget > maxChaseDistance)
+                if (distanceToTarget > maxChaseDistance || fearBar.GetSafeZone())
                 {
                     isChasing = false;
                 }

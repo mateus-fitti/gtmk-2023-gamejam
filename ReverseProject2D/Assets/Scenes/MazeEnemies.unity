@@ -1427,11 +1427,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5196434779967818615, guid: 66e718165b4952244bff004b90ca8fb0, type: 3}
       propertyPath: m_ForceSendLayers.m_Bits
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5196434779967818615, guid: 66e718165b4952244bff004b90ca8fb0, type: 3}
       propertyPath: m_ForceReceiveLayers.m_Bits
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5360850062919563932, guid: 66e718165b4952244bff004b90ca8fb0, type: 3}
       propertyPath: patrulha
@@ -1806,7 +1806,7 @@ Transform:
   m_GameObject: {fileID: 1502436074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.542837, y: -4.75886, z: -10}
+  m_LocalPosition: {x: -20.5, y: -10.59, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9083,6 +9083,10 @@ PrefabInstance:
     - target: {fileID: 1640124442438814681, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
       propertyPath: m_Name
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358227729743719048, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
+      propertyPath: smoothSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5153848279700414137, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
       propertyPath: m_LocalPosition.x
