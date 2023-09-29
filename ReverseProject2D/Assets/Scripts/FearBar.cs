@@ -36,7 +36,7 @@ public class FearBar : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_safeZone);
+        //Debug.Log(_safeZone);
         Vector2 mousePos = cMove.GetMousePosition();
         Vector2 charPos = transform.position;
         Vector2 lightPos = cMove.GetLightSource();

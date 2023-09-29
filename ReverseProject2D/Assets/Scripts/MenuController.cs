@@ -7,7 +7,7 @@ public class MenuController : MonoBehaviour
 {
     public List<Sound> sounds;
 
-    void Awake()
+    void Start()
     {
         SetLevelSounds();
     }

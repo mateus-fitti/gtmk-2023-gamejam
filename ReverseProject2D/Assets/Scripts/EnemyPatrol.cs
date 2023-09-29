@@ -39,7 +39,6 @@ public class EnemyPatrol : MonoBehaviour
         {
             target = abigail.transform;
             fearBar = abigail.GetComponent<FearBar>();
-            Debug.Log(fearBar);
         }
 
 

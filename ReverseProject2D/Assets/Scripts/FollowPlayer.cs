@@ -34,7 +34,7 @@ public class FollowPlayer : MonoBehaviour
             else
             {
                 // Se o componente não for encontrado, imprima uma mensagem de erro
-                Debug.LogError("PolygonCollider2D component not found on MapBounds object.");
+                //Debug.LogError("PolygonCollider2D component not found on MapBounds object.");
             }
         }
         else
