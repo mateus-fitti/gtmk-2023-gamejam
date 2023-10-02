@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -14,12 +16,12 @@ public class CharacterMovement : MonoBehaviour
     Vector2 _lightSource;
 
     void Awake()
-    {   
+    {
         _rb = GetComponent<Rigidbody2D>();
         SetLightSource(transform.position);
     }
 
-    void Start(){}
+    void Start() { }
     void Update()
     {
         _mousePos = GetMousePosition();
@@ -45,7 +47,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    void FixedUpdate(){}  
+    void FixedUpdate() { }
 
     public Vector2 GetMousePosition()
     {
@@ -63,6 +65,24 @@ public class CharacterMovement : MonoBehaviour
     public void SetLightSource(Vector2 pos)
     {
         _lightSource = pos;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Button")
+        {
+            Debug.Log("ACIONOU O BOTÃO!");
+            Animator anim = collision.gameObject.GetComponent<Animator>();
+            anim.Play("ButtonPress");
+            GameObject door = GameObject.FindGameObjectWithTag("Door");
+            GameObject doorOpen = GameObject.FindGameObjectWithTag("DoorOpen");
+            door.SetActive(false);
+            AudioSource doorSound = doorOpen.GetComponent<AudioSource>();
+            doorSound.Play();
+            doorOpen.transform.localScale = new Vector3(1f, 1f, 1f);
+
+
+        }
     }
 
     // void OnDrawGizmos()
