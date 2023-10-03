@@ -71,7 +71,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Button")
         {
-            Debug.Log("ACIONOU O BOTÃO!");
+            // Debug.Log("ACIONOU O BOTÃO!");
             Animator anim = collision.gameObject.GetComponent<Animator>();
             anim.Play("ButtonPress");
             GameObject door = GameObject.FindGameObjectWithTag("Door");

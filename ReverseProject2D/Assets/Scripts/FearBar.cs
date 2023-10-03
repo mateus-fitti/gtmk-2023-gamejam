@@ -22,16 +22,19 @@ public class FearBar : MonoBehaviour
     private bool _safeZone = true;
     private AudioSource crySound; // Referência ao AudioSource para o som de choro
 
-    void Start() { }
+
 
 
     void Awake()
     {
-        GameController.instance.SetGameStarted(true);
         crySound = GetComponent<AudioSource>();
         cMove = GetComponent<CharacterMovement>();
         _fearRange = cMove._followRange;
         UpdateFear(0);
+    }
+    void Start()
+    {
+        if (GameController.instance) GameController.instance.SetGameStarted(true);
     }
 
     void Update()

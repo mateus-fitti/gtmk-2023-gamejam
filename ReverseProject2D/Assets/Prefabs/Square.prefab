@@ -111,7 +111,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 96e210977af2b97498568963619ce5cc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -284,7 +284,7 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 959
   m_ForceReceiveLayers:
     serializedVersion: 2
     m_Bits: 4294967295

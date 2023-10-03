@@ -9,6 +9,8 @@ public class EnemyPatrol : MonoBehaviour
     public float patrolDelay = 1.0f; // Delay de patrulha em segundos
     public string targetTag = "Abigail";
 
+    public bool patrolEnabled;
+
     private Transform[] patrolPoints;
     private int currentPatrolIndex;
     private Transform target;
@@ -22,7 +24,7 @@ public class EnemyPatrol : MonoBehaviour
     private void Start()
     {
         // Obtenha os pontos de patrulha a partir do GameObject "patrolPointsParent"
-        patrolPoints = patrolPointsParent.GetComponentsInChildren<Transform>();
+        if (patrolPointsParent) patrolPoints = patrolPointsParent.GetComponentsInChildren<Transform>();
 
         // Ignore o transform pai (o próprio "patrolPointsParent")
         currentPatrolIndex = 1;
@@ -91,23 +93,31 @@ public class EnemyPatrol : MonoBehaviour
     {
         this.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
 
-        // Verifique se chegou ao ponto de patrulha atual
-        if (Vector3.Distance(transform.position, patrolPoints[currentPatrolIndex].position) < 0.1f)
+        if (patrolEnabled)
         {
-            // Aguarde o tempo de patrulha antes de mover para o próximo ponto
-            if (patrolTimer <= 0)
+            // Verifique se chegou ao ponto de patrulha atual
+            if (Vector3.Distance(transform.position, patrolPoints[currentPatrolIndex].position) < 0.1f)
             {
-                // Mova-se para o próximo ponto de patrulha
-                currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
-                patrolTimer = patrolDelay; // Configure o timer de patrulha para o próximo atraso
+                // Aguarde o tempo de patrulha antes de mover para o próximo ponto
+                if (patrolTimer <= 0)
+                {
+                    // Mova-se para o próximo ponto de patrulha
+                    currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+                    patrolTimer = patrolDelay; // Configure o timer de patrulha para o próximo atraso
+                }
+                else
+                {
+                    patrolTimer -= Time.deltaTime;
+                }
             }
-            else
-            {
-                patrolTimer -= Time.deltaTime;
-            }
+
+            // Mova-se em direção ao ponto de patrulha atual
+            transform.position = Vector3.MoveTowards(transform.position, patrolPoints[currentPatrolIndex].position, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, initialPosition, moveSpeed * Time.deltaTime);
         }
 
-        // Mova-se em direção ao ponto de patrulha atual
-        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[currentPatrolIndex].position, moveSpeed * Time.deltaTime);
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7927376312152851229}
   - component: {fileID: 5196434779967818615}
   - component: {fileID: 2709222640627757737}
+  - component: {fileID: 6028755003773079280}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -54,6 +55,7 @@ MonoBehaviour:
   maxChaseDistance: 7
   patrolDelay: 3
   targetTag: Abigail
+  patrolEnabled: 0
 --- !u!212 &7927376312152851229
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -168,6 +170,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &6028755003773079280
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407479284929499076}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0e16e696d0e78d48a0c57bdbd335672, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6649757178988883337
 GameObject:
   m_ObjectHideFlags: 0
