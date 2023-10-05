@@ -1095,7 +1095,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 2.2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -1155,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001587876456032593, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1877,7 +1877,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 2.1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -1937,7 +1937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001587876456032593, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1959,7 +1959,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 1.8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -2019,7 +2019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001587876456032593, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2214,7 +2214,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 2.2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -2274,7 +2274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001587876456032593, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13404,7 +13404,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 21
-      m_TileSpriteIndex: 20
+      m_TileSpriteIndex: 27
       m_TileMatrixIndex: 0
       m_TileColorIndex: 3
       m_TileObjectToInstantiateIndex: 65535
@@ -15179,8 +15179,8 @@ Tilemap:
     m_Data: {fileID: 34059500, guid: 9680b07a06a9aa84d879367a8155e480, type: 3}
   - m_RefCount: 14
     m_Data: {fileID: -105249569, guid: 9680b07a06a9aa84d879367a8155e480, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 2111643619, guid: 9680b07a06a9aa84d879367a8155e480, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 646566247, guid: 9680b07a06a9aa84d879367a8155e480, type: 3}
   - m_RefCount: 20
@@ -15193,8 +15193,8 @@ Tilemap:
     m_Data: {fileID: -938818448, guid: 9680b07a06a9aa84d879367a8155e480, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 2111643619, guid: 9680b07a06a9aa84d879367a8155e480, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 15229490, guid: 9680b07a06a9aa84d879367a8155e480, type: 3}
   - m_RefCount: 1
@@ -15354,7 +15354,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 2.2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -15418,7 +15418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001587876456032593, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
