@@ -14,7 +14,7 @@ public class ChooseLevel : MonoBehaviour
     {
         int currentLevel = GameController.instance.CurrentLevel();
 
-        if (GameController.instance != null && currentLevel > 1)
+        if (GameController.instance != null)
         {
             // Find the GameObject with GridLayoutGroup inside LevelSelector
             GridLayoutGroup gridLayout = this.gameObject.GetComponentInChildren<GridLayoutGroup>();
