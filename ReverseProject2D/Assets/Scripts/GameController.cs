@@ -64,4 +64,30 @@ public class GameController : MonoBehaviour
     {
         _gameStarted = newValue;
     }
+
+    public int CurrentLevel()
+    {
+        return PlayerPrefs.GetInt("CurrentLevel", 1);
+    }
+
+    public void UpdateLevel(int level)
+    {
+        int nextLevel = level + 1;
+        if ((nextLevel) < SceneManager.sceneCountInBuildSettings)
+        {
+            PlayerPrefs.SetInt("Level" + level, 1);
+            PlayerPrefs.SetInt("CurrentLevel", nextLevel);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public bool CheckLevelCompleted(int num)
+    {
+        bool flag = false;
+        int level = PlayerPrefs.GetInt("Level" + num, 0);
+        if (level > 0) flag = true;
+        else flag = false;
+
+        return flag;
+    }
 }

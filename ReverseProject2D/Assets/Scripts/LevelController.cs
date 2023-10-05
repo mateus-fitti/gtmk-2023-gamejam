@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class LevelController : MonoBehaviour
 {
@@ -26,6 +29,15 @@ public class LevelController : MonoBehaviour
         FreezeGame(true);
         victoryScreen.SetActive(true);
         PlaySound("Victory");
+
+        string currentScene = SceneManager.GetActiveScene().name;
+        string searchString = "Level";
+        int index = currentScene.IndexOf(searchString);
+        int result = int.Parse(currentScene.Substring(index + searchString.Length));
+
+        if (!GameController.instance.CheckLevelCompleted(result)) GameController.instance.UpdateLevel(result);
+
+
     }
 
     void SetLevelSounds()

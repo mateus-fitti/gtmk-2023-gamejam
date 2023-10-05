@@ -15,7 +15,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector3(-20.5f, -10.5900002f, 0);
+        if (GameObject.FindGameObjectWithTag("Abigail")) transform.position = GameObject.FindGameObjectWithTag("Abigail").transform.position;
         Cursor.visible = false;
 
         // Tente encontrar o objeto "MapBounds" na cena
