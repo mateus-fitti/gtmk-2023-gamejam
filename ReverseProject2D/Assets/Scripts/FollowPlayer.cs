@@ -7,6 +7,7 @@ public class FollowPlayer : MonoBehaviour
     public float smoothSpeed = 5f; // Velocidade de suavização do movimento do personagem
 
     private Vector3 targetPosition;
+    private SpriteRenderer spriteRenderer;
 
     private PolygonCollider2D mapBounds;
     private Vector2 canvasBoundsMin;
@@ -15,7 +16,12 @@ public class FollowPlayer : MonoBehaviour
 
     private void Start()
     {
-        if (GameObject.FindGameObjectWithTag("Abigail")) transform.position = GameObject.FindGameObjectWithTag("Abigail").transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (GameObject.FindGameObjectWithTag("Abigail"))
+        {
+            transform.position = GameObject.FindGameObjectWithTag("Abigail").transform.position;
+        }
         Cursor.visible = false;
 
         // Tente encontrar o objeto "MapBounds" na cena
@@ -96,6 +102,8 @@ public class FollowPlayer : MonoBehaviour
         // Clamp a posição do personagem dentro dos limites calculados
         targetPosition.x = Mathf.Clamp(targetPosition.x, canvasBoundsMin.x, canvasBoundsMax.x);
         targetPosition.y = Mathf.Clamp(targetPosition.y, canvasBoundsMin.y, canvasBoundsMax.y);
+
+        FlipGhost();
     }
 
     private void FixedUpdate()
@@ -104,4 +112,24 @@ public class FollowPlayer : MonoBehaviour
         Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.fixedDeltaTime);
         transform.position = smoothPosition;
     }
+
+    public void FlipGhost()
+    {
+        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        // Verifica a posição do cursor em relação ao ghost
+        if (cursorPosition.x < transform.position.x)
+        {
+            // Se o cursor estiver à esquerda do ghost, flipa o Sprite para a esquerda
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            // Se o cursor estiver à direita do ghost, flipa o Sprite para a direita
+            spriteRenderer.flipX = false;
+        }
+
+    }
+
+
 }
