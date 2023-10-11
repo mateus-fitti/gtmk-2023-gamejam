@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 public class ChooseLevel : MonoBehaviour
 {
     public GameObject levelPrefab;
-
     // Start is called before the first frame update
     void Start()
     {
-        int currentLevel = GameController.instance.CurrentLevel();
+        int currentLevel = GameController.instance.NumberOfLevels();
+
 
         if (GameController.instance != null)
         {

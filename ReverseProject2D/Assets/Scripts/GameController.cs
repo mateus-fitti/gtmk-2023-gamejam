@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +10,8 @@ public class GameController : MonoBehaviour
 {
 
     public static GameController instance;
-
+    [Tooltip("Ative para deixar todos as fases liberadas no seletor. Desative para liberar apenas fases que você já completou.")]
+    public bool unlockAllLevels = true;
     private bool _gameStarted = false;
 
     void Awake()
@@ -89,5 +92,22 @@ public class GameController : MonoBehaviour
         else flag = false;
 
         return flag;
+    }
+
+    public int NumberOfLevels()
+    {
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+        List<string> scenes = new List<string>(sceneCount);
+
+        for (int i = 0; i < sceneCount; i++)
+        {
+            string sceneName = Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i));
+            if (sceneName.ToLower().Contains("level"))
+            {
+                scenes.Add(sceneName);
+            }
+        }
+        if (unlockAllLevels) return scenes.Count;
+        else return CurrentLevel();
     }
 }
