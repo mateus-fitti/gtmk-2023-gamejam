@@ -77,10 +77,18 @@ public class CharacterMovement : MonoBehaviour
             GameObject door = GameObject.FindGameObjectWithTag("Door");
             GameObject doorOpen = GameObject.FindGameObjectWithTag("DoorOpen");
             door.SetActive(false);
-            AudioSource doorSound = doorOpen.GetComponent<AudioSource>();
-            doorSound.Play();
+            GetComponent<FearBar>().levelCtrl.PlaySound("Door");
             doorOpen.transform.localScale = new Vector3(1f, 1f, 1f);
 
+
+        }
+
+        if (collision.gameObject.tag == "Secret")
+        {
+            // Debug.Log("ACIONOU O BOTÃO!");
+            Animator anim = collision.gameObject.GetComponent<Animator>();
+            GetComponent<FearBar>().levelCtrl.PlaySound("Secret");
+            collision.gameObject.SetActive(false);
 
         }
     }

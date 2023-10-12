@@ -11,6 +11,7 @@ TagManager:
   - Button
   - Door
   - DoorOpen
+  - Secret
   layers:
   - Default
   - TransparentFX
