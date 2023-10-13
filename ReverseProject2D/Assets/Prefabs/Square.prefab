@@ -326,6 +326,7 @@ MonoBehaviour:
   _followRange: 3.5
   _extraRange: 1
   _moveSpeed: 2
+  secretScreen: {fileID: 0}
 --- !u!114 &3336547987441930125
 MonoBehaviour:
   m_ObjectHideFlags: 0

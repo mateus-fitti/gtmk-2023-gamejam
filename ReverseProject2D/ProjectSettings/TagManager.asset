@@ -12,6 +12,7 @@ TagManager:
   - Door
   - DoorOpen
   - Secret
+  - SecretScreen
   layers:
   - Default
   - TransparentFX

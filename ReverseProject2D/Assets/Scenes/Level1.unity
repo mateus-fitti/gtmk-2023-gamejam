@@ -755,7 +755,7 @@ MonoBehaviour:
   sounds:
   - name: Music
     clip: {fileID: 8300000, guid: 68fa3fa0aa92b7e4d994815d0eb63a11, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 1
     single: 0
@@ -763,7 +763,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: ButtonSound
     clip: {fileID: 8300000, guid: 4a287bd8bcb9f11448ad95f41676e49f, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -771,7 +771,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Victory
     clip: {fileID: 8300000, guid: 1acec1e53cc9bed44988b20d84e651d9, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -779,7 +779,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Defeat
     clip: {fileID: 8300000, guid: 5d46f44fc7ecd1a4f92418aa77a19a07, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -787,7 +787,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Door
     clip: {fileID: 8300000, guid: 718f98e3fb2345b48ae09d565228a1f4, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Secret
     clip: {fileID: 8300000, guid: f0c03b9129ba4a14791152d37d0a898e, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -1383,10 +1383,10 @@ PrefabInstance:
       propertyPath: _worldCamera
       value: 
       objectReference: {fileID: 1502436076}
-    - target: {fileID: 8599985434147643956, guid: 962d375e49909d64cade0c20524ccfd2, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
+    - target: {fileID: 7261003503867607026, guid: 962d375e49909d64cade0c20524ccfd2, type: 3}
+      propertyPath: secretScreen
+      value: 
+      objectReference: {fileID: 3431012287762397519}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15765,6 +15765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1359223717225161896, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1404581577056182870, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15793,6 +15797,10 @@ PrefabInstance:
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 1502436077}
+    - target: {fileID: 2112140473304993810, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3058593164341305172, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15925,6 +15933,53 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_text
+      value: 'to com medo so que ele disse que vai me proteger
+
+
+        ouvi um
+        barulho estranho
+
+
+        quero voltar pra casa'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 018d1749005be2d458bce00619a3e2d3, type: 2}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4673947882440209773, guid: 018d1749005be2d458bce00619a3e2d3, type: 2}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4203964291091134335, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_MatchWidthOrHeight
       value: 0.7
@@ -15976,6 +16031,10 @@ PrefabInstance:
     - target: {fileID: 4267727816520547400, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597925333284674065, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -16081,6 +16140,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 649602137}
+    - target: {fileID: 5039872153977815734, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5040947848342842533, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -16208,6 +16271,11 @@ PrefabInstance:
 --- !u!224 &3431012287762397518 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7606091979015684298, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+  m_PrefabInstance: {fileID: 3431012287762397517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3431012287762397519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5039872153977815734, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
   m_PrefabInstance: {fileID: 3431012287762397517}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8198107935018330376

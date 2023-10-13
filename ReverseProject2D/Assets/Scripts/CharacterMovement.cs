@@ -11,6 +11,8 @@ public class CharacterMovement : MonoBehaviour
     public float _followRange = 5.0f;
     public float _extraRange = 5.0f;
     public float _moveSpeed = 5.0f;
+
+    public GameObject secretScreen;
     Vector2 _mousePos;
     Vector2 _charPos;
     Vector2 _lightSource;
@@ -86,10 +88,13 @@ public class CharacterMovement : MonoBehaviour
         if (collision.gameObject.tag == "Secret")
         {
             // Debug.Log("ACIONOU O BOTÃO!");
-            Animator anim = collision.gameObject.GetComponent<Animator>();
+            if (secretScreen != null)
+            {
+                secretScreen.SetActive(true);
+                GetComponent<FearBar>().levelCtrl.FreezeGame(true);
+            }
             GetComponent<FearBar>().levelCtrl.PlaySound("Secret");
             collision.gameObject.SetActive(false);
-
         }
     }
 

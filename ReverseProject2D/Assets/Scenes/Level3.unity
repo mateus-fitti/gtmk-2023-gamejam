@@ -1437,7 +1437,7 @@ MonoBehaviour:
   sounds:
   - name: Music
     clip: {fileID: 8300000, guid: 3c72af4f8b97f5249aa72b6036d7a2bf, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 1
     single: 0
@@ -1445,7 +1445,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: ButtonSound
     clip: {fileID: 8300000, guid: 4a287bd8bcb9f11448ad95f41676e49f, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -1453,7 +1453,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Victory
     clip: {fileID: 8300000, guid: 1acec1e53cc9bed44988b20d84e651d9, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -1461,7 +1461,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Defeat
     clip: {fileID: 8300000, guid: 5d46f44fc7ecd1a4f92418aa77a19a07, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -1469,7 +1469,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Door
     clip: {fileID: 8300000, guid: 718f98e3fb2345b48ae09d565228a1f4, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -1477,7 +1477,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Secret
     clip: {fileID: 8300000, guid: f0c03b9129ba4a14791152d37d0a898e, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     loop: 0
     single: 0
@@ -2297,6 +2297,10 @@ PrefabInstance:
       propertyPath: _worldCamera
       value: 
       objectReference: {fileID: 1502436076}
+    - target: {fileID: 7261003503867607026, guid: 962d375e49909d64cade0c20524ccfd2, type: 3}
+      propertyPath: secretScreen
+      value: 
+      objectReference: {fileID: 1573299491}
     - target: {fileID: 8599985434147643956, guid: 962d375e49909d64cade0c20524ccfd2, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -14349,6 +14353,11 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1573299491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5039872153977815734, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+  m_PrefabInstance: {fileID: 3431012287762397517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1776524218
 GameObject:
   m_ObjectHideFlags: 0
@@ -21359,6 +21368,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2112140473304993810, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3058593164341305172, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -21495,6 +21508,43 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_text
+      value: "olhos grandes nao gostam \nde barulho\n\nele disse para eu nao chorar\n\ne
+        que tem um botao magico\npra eu achar o lugar secreto\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_fontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_overflowMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_lineSpacingMax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_charWidthMaxAdj
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_verticalMapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_horizontalMapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787558835170814816, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4203964291091134335, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_MatchWidthOrHeight
       value: 0.7
@@ -21542,6 +21592,18 @@ PrefabInstance:
     - target: {fileID: 4267727816520547400, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597925333284674065, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 370
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597925333284674065, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597925333284674065, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 4619134304623364746, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -21651,6 +21713,10 @@ PrefabInstance:
       propertyPath: m_CullTransparentMesh
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5039872153977815734, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5040947848342842533, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -21658,6 +21724,30 @@ PrefabInstance:
     - target: {fileID: 5040947848342842533, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 649602137}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 649602137}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: FreezeGame
       objectReference: {fileID: 0}
     - target: {fileID: 7378291305494598166, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_Pivot.x
