@@ -16152,6 +16152,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 649602137}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 649602137}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: FreezeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472111560610941445, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
     - target: {fileID: 7378291305494598166, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_Pivot.x
       value: 0
