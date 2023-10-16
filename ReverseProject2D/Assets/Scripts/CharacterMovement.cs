@@ -13,6 +13,7 @@ public class CharacterMovement : MonoBehaviour
     public float _moveSpeed = 5.0f;
 
     public GameObject secretScreen;
+    public List<TipoChave> playerKeys = new List<TipoChave>();
     Vector2 _mousePos;
     Vector2 _charPos;
     Vector2 _lightSource;
@@ -81,8 +82,6 @@ public class CharacterMovement : MonoBehaviour
             door.SetActive(false);
             GetComponent<FearBar>().levelCtrl.PlaySound("Door");
             doorOpen.transform.localScale = new Vector3(1f, 1f, 1f);
-
-
         }
 
         if (collision.gameObject.tag == "Secret")
@@ -96,11 +95,68 @@ public class CharacterMovement : MonoBehaviour
             GetComponent<FearBar>().levelCtrl.PlaySound("Secret");
             collision.gameObject.SetActive(false);
         }
+
+        if (collision.gameObject.tag == "Key")
+        {
+            // Debug.Log("ACIONOU O BOTÃO!");
+            Key chave = collision.gameObject.GetComponent<Key>();
+            ColetarChave(chave);
+            GetComponent<FearBar>().levelCtrl.PlaySound("Secret");
+            collision.gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.tag == "KeyDoor")
+        {
+            KeyDoor porta = collision.gameObject.GetComponent<KeyDoor>();
+
+            if (playerKeys.Contains(porta.tipoChaveNecessaria))
+            {
+                GetComponent<FearBar>().levelCtrl.PlaySound("Door");
+                Animator anim = collision.gameObject.GetComponent<Animator>();
+                anim.SetTrigger(porta.animacaoPorta.ToString());
+                collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+                //collision.gameObject.SetActive(false);
+
+            }
+
+        }
     }
 
+    void ColetarChave(Key chave)
+    {
+        TipoChave tipoChave = chave.tipoChave;
+
+        if (!playerKeys.Contains(tipoChave))
+        {
+            playerKeys.Add(tipoChave);
+            ActivateChildWithTipoChave(tipoChave);
+            Debug.Log("Chave " + tipoChave + " coletada!");
+        }
+    }
+
+
+    private void ActivateChildWithTipoChave(TipoChave tipoChave)
+    {
+        // Encontra o GameObject pai com a tag "KeyList"
+        GameObject keyList = GameObject.FindGameObjectWithTag("KeyList");
+
+        if (keyList != null)
+        {
+            // Itera através dos filhos do GameObject pai
+            foreach (Transform child in keyList.transform)
+            {
+                Key chave = child.GetComponent<Key>();
+                if (chave.tipoChave == tipoChave)
+                {
+                    child.gameObject.SetActive(true);
+                }
+            }
+        }
+
+
+    }
     // void OnDrawGizmos()
     // {
     //     Gizmos.DrawWireSphere(_mousePos, _followRange);
     // }
-
 }
