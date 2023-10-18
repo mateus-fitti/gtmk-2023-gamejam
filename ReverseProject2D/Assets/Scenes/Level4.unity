@@ -1455,6 +1455,7 @@ MonoBehaviour:
     single: 0
     source: {fileID: 0}
     mixer: {fileID: 0}
+  timerText: {fileID: 2109203008}
 --- !u!4 &649602138
 Transform:
   m_ObjectHideFlags: 0
@@ -15136,6 +15137,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109203008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7173465304893200456, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
+  m_PrefabInstance: {fileID: 3431012287762397517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2109620605
 GameObject:
   m_ObjectHideFlags: 0

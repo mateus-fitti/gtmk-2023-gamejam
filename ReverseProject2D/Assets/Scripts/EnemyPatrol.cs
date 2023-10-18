@@ -53,7 +53,7 @@ public class EnemyPatrol : MonoBehaviour
             // Verifique a distância entre o inimigo e o alvo
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
             
-            if (distanceToTarget <= detectionRange)
+            if (distanceToTarget <= detectionRange && !fearBar.GetSafeZone())
                 isChasing = true;
             else if (isChasing && distanceToTarget > maxChaseDistance || fearBar.GetSafeZone())
             {
