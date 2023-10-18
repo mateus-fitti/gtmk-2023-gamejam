@@ -54,3 +54,12 @@ MonoBehaviour:
     single: 0
     source: {fileID: 0}
     mixer: {fileID: 0}
+  - name: Monster_Chase
+    clip: {fileID: 8300000, guid: ef76ecf7d6866f943ada11add5be75c7, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    single: 0
+    source: {fileID: 0}
+    mixer: {fileID: 0}
+  mainVolume: 0.3

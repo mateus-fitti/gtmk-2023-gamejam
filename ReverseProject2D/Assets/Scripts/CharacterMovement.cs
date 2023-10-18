@@ -89,6 +89,7 @@ public class CharacterMovement : MonoBehaviour
             // Debug.Log("ACIONOU O BOTÃO!");
             if (secretScreen != null)
             {
+                GameObject.Find("PauseButton").SetActive(false);
                 secretScreen.SetActive(true);
                 GetComponent<FearBar>().levelCtrl.FreezeGame(true);
             }

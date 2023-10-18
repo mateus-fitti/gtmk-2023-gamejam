@@ -9,7 +9,7 @@ public class EnemyPatrol : MonoBehaviour
     public float patrolDelay = 1.0f; // Delay de patrulha em segundos
     public string targetTag = "Abigail";
 
-    public bool patrolEnabled;
+    public bool patrolEnabled = false;
 
     private Transform[] patrolPoints;
     private int currentPatrolIndex;
@@ -17,6 +17,7 @@ public class EnemyPatrol : MonoBehaviour
     private Vector3 initialPosition;
     private bool isChasing;
     private float patrolTimer;
+    private bool chaseSoundFlag = false;
 
     private FearBar fearBar;
 
@@ -27,7 +28,7 @@ public class EnemyPatrol : MonoBehaviour
         if (patrolPointsParent) patrolPoints = patrolPointsParent.GetComponentsInChildren<Transform>();
 
         // Ignore o transform pai (o próprio "patrolPointsParent")
-        currentPatrolIndex = 1;
+        currentPatrolIndex = 0;
 
         // Defina a posição inicial do inimigo
         initialPosition = transform.position;
@@ -43,7 +44,6 @@ public class EnemyPatrol : MonoBehaviour
             fearBar = abigail.GetComponent<FearBar>();
         }
 
-
     }
 
     private void Update()
@@ -52,46 +52,35 @@ public class EnemyPatrol : MonoBehaviour
         {
             // Verifique a distância entre o inimigo e o alvo
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-            if (isChasing)
+            
+            if (distanceToTarget <= detectionRange)
+                isChasing = true;
+            else if (isChasing && distanceToTarget > maxChaseDistance || fearBar.GetSafeZone())
             {
-                this.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
-
-                // Se o inimigo estiver perseguindo o alvo, verifique a distância de perseguição máxima
-                if (distanceToTarget > maxChaseDistance || fearBar.GetSafeZone())
-                {
-                    isChasing = false;
-                }
-                else
-                {
-                    // Continue perseguindo o alvo
-                    transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-                }
+                isChasing = false;
+            }
+            
+             if (isChasing)
+            {
+                this.GetComponent<CircleCollider2D>().isTrigger = false;
+                PlayChaseSound();
+                transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
             }
             else
             {
-                // Se o alvo estiver dentro do alcance de detecção, persiga-o
-                if (distanceToTarget <= detectionRange)
-                {
-                    isChasing = true;
-                }
-                else
-                {
-                    // Se não estiver perseguindo, continue a patrulha
-                    Patrol();
-                }
+                this.GetComponent<CircleCollider2D>().isTrigger = true;
+                Patrol();
             }
         }
         else
         {
-            // Se o alvo não estiver presente, continue a patrulha
             Patrol();
         }
     }
 
     private void Patrol()
     {
-        this.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+        StopChaseSound();
 
         if (patrolEnabled)
         {
@@ -119,5 +108,20 @@ public class EnemyPatrol : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, initialPosition, moveSpeed * Time.deltaTime);
         }
 
+    }
+
+    void PlayChaseSound(){
+        if(!chaseSoundFlag){
+        SoundManager.instance.Play("Monster_Chase");
+        chaseSoundFlag = true;
+        } 
+
+    }
+
+    void StopChaseSound(){
+        if(chaseSoundFlag){
+        SoundManager.instance.Stop("Monster_Chase");
+        chaseSoundFlag = false;
+        }
     }
 }

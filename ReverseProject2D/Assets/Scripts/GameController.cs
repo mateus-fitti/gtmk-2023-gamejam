@@ -31,13 +31,24 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && this.GetGameStarted())
         {
-            Button pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
+           // Verifique se o OptionsPanel está ativo
+        GameObject optionsPanel = GameObject.Find("OptionsPanel");
+        if (optionsPanel != null && optionsPanel.activeSelf)
+        {
+        // Desative o OptionsPanel
+        optionsPanel.SetActive(false);
+        UnPauseGame();
+        }
+        else
+        {
+        Button pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
 
-            // Verifica se o botão não é nulo e, em seguida, simula o clique nele
-            if (pauseButton != null)
-            {
-                pauseButton.onClick.Invoke();
-            }
+        // Verifique se o botão não é nulo e, em seguida, simule o clique nele
+        if (pauseButton != null)
+        {
+            pauseButton.onClick.Invoke();
+        }
+        }
         }
     }
 

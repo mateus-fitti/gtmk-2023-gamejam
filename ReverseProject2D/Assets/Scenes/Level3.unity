@@ -1619,6 +1619,14 @@ MonoBehaviour:
     single: 0
     source: {fileID: 0}
     mixer: {fileID: 0}
+  - name: Monster_Chase
+    clip: {fileID: 8300000, guid: ef76ecf7d6866f943ada11add5be75c7, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    single: 0
+    source: {fileID: 0}
+    mixer: {fileID: 0}
 --- !u!4 &649602138
 Transform:
   m_ObjectHideFlags: 0
@@ -3030,7 +3038,7 @@ Transform:
   m_GameObject: {fileID: 1502436074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3013124, y: 6.57471, z: -10}
+  m_LocalPosition: {x: -4.5299883, y: 6.57573, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:

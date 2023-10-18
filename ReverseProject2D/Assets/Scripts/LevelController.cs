@@ -19,6 +19,7 @@ public class LevelController : MonoBehaviour
 
     public void Defeat()
     {
+        SoundManager.instance.StopAllSounds();
         FreezeGame(true);
         defeatScreen.SetActive(true);
         PlaySound("Defeat");
