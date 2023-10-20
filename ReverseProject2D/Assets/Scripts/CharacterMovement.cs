@@ -9,7 +9,6 @@ public class CharacterMovement : MonoBehaviour
     public Camera _worldCamera;
     Rigidbody2D _rb;
     public float _followRange = 5.0f;
-    public float _extraRange = 5.0f;
     public float _moveSpeed = 5.0f;
 
     public GameObject secretScreen;
@@ -29,26 +28,49 @@ public class CharacterMovement : MonoBehaviour
     {
         _mousePos = GetMousePosition();
         _charPos = transform.position;
-        float theDistance = Vector2.Distance(_charPos, _mousePos);
 
-        if (theDistance <= _followRange)
+        if (IsCollidingWithGhost())
         {
-            float velocity = _moveSpeed * Time.deltaTime;
-
-            transform.position = Vector2.MoveTowards(_charPos, _mousePos, velocity);
+            MoveTowards(_mousePos);
         }
-        else
+        else if (IsCollidingWithLightSource())
         {
-            theDistance = Vector2.Distance(_charPos, _lightSource);
-
-            if (theDistance <= _followRange + _extraRange)
-            {
-                float velocity = _moveSpeed * Time.deltaTime;
-
-                transform.position = Vector2.MoveTowards(_charPos, _lightSource, velocity);
-            }
+            MoveTowards(_lightSource);
         }
     }
+
+    bool IsCollidingWithGhost()
+    {
+        Collider2D[] colliders = Physics2D.OverlapPointAll(_charPos);
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("Ghost"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool IsCollidingWithLightSource()
+    {
+        Collider2D[] colliders = Physics2D.OverlapPointAll(_charPos);
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("LightSource"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void MoveTowards(Vector2 target)
+    {
+        float velocity = _moveSpeed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(_charPos, target, velocity);
+    }
+
 
     void FixedUpdate() { }
 

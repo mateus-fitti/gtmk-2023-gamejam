@@ -803,7 +803,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Monster_Chase
     clip: {fileID: 8300000, guid: ef76ecf7d6866f943ada11add5be75c7, type: 3}
-    volume: 0.2
+    volume: 0.1
     pitch: 1
     loop: 1
     single: 0
@@ -1120,7 +1120,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -1730,6 +1730,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 500166393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411166186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1640124442438814681, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
+  m_PrefabInstance: {fileID: 2123096540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1444131628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1404581577056182870, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
@@ -1902,7 +1907,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -1984,7 +1993,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 3
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -2144,7 +2161,7 @@ Transform:
   m_GameObject: {fileID: 1502436074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5390396, y: -4.7588797, z: -10}
+  m_LocalPosition: {x: -2.3206215, y: -4.7669, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2239,7 +2256,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -9029,6 +9050,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5153848279700414137, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
   m_PrefabInstance: {fileID: 2123096540}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &1543756247
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411166186}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
 --- !u!4 &1561392638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
@@ -9639,6 +9695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 1640124442438814681, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
+      propertyPath: m_TagString
+      value: Ghost
+      objectReference: {fileID: 0}
     - target: {fileID: 4358227729743719048, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
       propertyPath: smoothSpeed
       value: 2
@@ -9686,7 +9746,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1640124442438814681, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1543756247}
   m_SourcePrefab: {fileID: 100100000, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
 --- !u!1 &2133944119
 GameObject:
@@ -15614,7 +15677,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder
@@ -15991,7 +16054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203964291091134335, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_MatchWidthOrHeight
-      value: 0.7
+      value: 0.351
       objectReference: {fileID: 0}
     - target: {fileID: 4267727816520547400, guid: f1ce73e846511a5429dc0fe91d839eaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

@@ -16,6 +16,7 @@ TagManager:
   - KeyDoor
   - Key
   - KeyList
+  - Ghost
   layers:
   - Default
   - TransparentFX

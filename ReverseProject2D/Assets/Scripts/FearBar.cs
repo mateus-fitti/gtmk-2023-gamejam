@@ -40,49 +40,61 @@ public class FearBar : MonoBehaviour
     void Update()
     {
         //Debug.Log(_safeZone);
-        Vector2 mousePos = cMove.GetMousePosition();
-        Vector2 charPos = transform.position;
-        Vector2 lightPos = cMove.GetLightSource();
+            int fearValue = _fearDefaultVal; // Valor padrão de aumento do medo
 
-        float dist1 = Vector2.Distance(charPos, mousePos);
-        float dist2 = Vector2.Distance(charPos, lightPos);
-
-        int fearValue = 0;
-
-        if (dist2 <= _fearRange)
-        {
-            SetSafeZone(true);
-            fearValue -= _fearDefaultVal * 2;
-            if (crySound.isPlaying)
+            if (IsCollidingWithGhost())
             {
-                crySound.Stop();
+                SetSafeZone(false);
+                fearValue = 0;
+                if (crySound.isPlaying)
+                {
+                    crySound.Stop();
+                }
+            }
+            else if (IsCollidingWithLightSource())
+            {
+                SetSafeZone(true);
+                fearValue -= _fearDefaultVal * 2;
+                if (crySound.isPlaying)
+                {
+                    crySound.Stop();
+                }
+            }
+
+            _counter += Time.deltaTime;
+
+            if (_counter >= _fearDelay)
+            {
+                _counter = 0f;
+                UpdateFear(fearValue);
+            }
+
+    }
+
+     bool IsCollidingWithGhost()
+    {
+        Collider2D[] colliders = Physics2D.OverlapPointAll(transform.position);
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("Ghost"))
+            {
+                return true;
             }
         }
-        else if (dist1 <= _fearRange)
+        return false;
+    }
+
+    bool IsCollidingWithLightSource()
+    {
+        Collider2D[] colliders = Physics2D.OverlapPointAll(transform.position);
+        foreach (var collider in colliders)
         {
-            SetSafeZone(false);
-            fearValue = 0;
-            if (crySound.isPlaying)
+            if (collider.gameObject.CompareTag("LightSource"))
             {
-                crySound.Stop();
+                return true;
             }
         }
-        else
-        {
-            SetSafeZone(false);
-            fearValue += _fearDefaultVal;
-        }
-
-        _counter += Time.deltaTime;
-
-        if (_counter >= _fearDelay)
-        {
-            _counter = 0f;
-
-            UpdateFear(fearValue);
-        }
-
-
+        return false;
     }
 
     void UpdateFear(int value)
