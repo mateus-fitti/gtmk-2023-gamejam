@@ -209,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4210827396305550580}
   - component: {fileID: 8599985434147643956}
-  - component: {fileID: 5316360469163125062}
+  - component: {fileID: 3879246335120384502}
   - component: {fileID: 7261003503867607026}
   - component: {fileID: 3336547987441930125}
   - component: {fileID: 1736862694682387614}
@@ -265,8 +265,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &5316360469163125062
-BoxCollider2D:
+--- !u!58 &3879246335120384502
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -298,18 +298,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.76831055, y: 1.1848644}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!114 &7261003503867607026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,9 +314,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _worldCamera: {fileID: 0}
   _followRange: 3.5
-  _extraRange: 1
   _moveSpeed: 2
   secretScreen: {fileID: 0}
+  playerKeys: 
 --- !u!114 &3336547987441930125
 MonoBehaviour:
   m_ObjectHideFlags: 0

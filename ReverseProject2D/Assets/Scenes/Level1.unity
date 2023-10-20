@@ -803,7 +803,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Monster_Chase
     clip: {fileID: 8300000, guid: ef76ecf7d6866f943ada11add5be75c7, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 1
     single: 0
@@ -1997,7 +1997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Offset.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Offset.y
@@ -2009,7 +2009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2060,8 +2060,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8001587876456032593, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001587876456032593, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2161,7 +2165,7 @@ Transform:
   m_GameObject: {fileID: 1502436074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3206215, y: -4.7669, z: -10}
+  m_LocalPosition: {x: -4.535141, y: -4.7588897, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9084,7 +9088,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 5.5
 --- !u!4 &1561392638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
@@ -9198,7 +9202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776524218}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.5, y: -10.59, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
@@ -9224,7 +9228,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 1543756244}
   m_Follow: {fileID: 1543756244}
   m_Lens:
     FieldOfView: 60
@@ -9698,6 +9702,10 @@ PrefabInstance:
     - target: {fileID: 1640124442438814681, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
       propertyPath: m_TagString
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284209334022673336, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4358227729743719048, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
       propertyPath: smoothSpeed
@@ -15677,7 +15685,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1451652952626402945, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_Radius
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1531768743466125339, guid: 9a29383a48d49e647bf93d211d4c2c8d, type: 3}
       propertyPath: m_RootOrder

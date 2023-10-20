@@ -40,9 +40,18 @@ public class FearBar : MonoBehaviour
     void Update()
     {
         //Debug.Log(_safeZone);
-            int fearValue = _fearDefaultVal; // Valor padrão de aumento do medo
+            int fearValue = 0; // Valor padrão de aumento do medo
 
-            if (IsCollidingWithGhost())
+            if (IsCollidingWithLightSource())
+            {
+                SetSafeZone(true);
+                fearValue -= _fearDefaultVal * 2;
+                if (crySound.isPlaying)
+                {
+                    crySound.Stop();
+                }
+            } 
+            else if (IsCollidingWithGhost())
             {
                 SetSafeZone(false);
                 fearValue = 0;
@@ -51,14 +60,9 @@ public class FearBar : MonoBehaviour
                     crySound.Stop();
                 }
             }
-            else if (IsCollidingWithLightSource())
-            {
-                SetSafeZone(true);
-                fearValue -= _fearDefaultVal * 2;
-                if (crySound.isPlaying)
-                {
-                    crySound.Stop();
-                }
+            else {
+                SetSafeZone(false);
+                fearValue += _fearDefaultVal;
             }
 
             _counter += Time.deltaTime;
@@ -96,6 +100,7 @@ public class FearBar : MonoBehaviour
         }
         return false;
     }
+
 
     void UpdateFear(int value)
     {
@@ -139,8 +144,7 @@ public class FearBar : MonoBehaviour
         }
 
         // Old bar with text
-        //_textBar.text = _fear + "/" + _fearLimit;
-        //Debug.Log("O nivel de medo é " + _textBar.text);
+        // Debug.Log("O nivel de medo é " + _fear);
     }
 
     public bool GetSafeZone()
@@ -153,6 +157,13 @@ public class FearBar : MonoBehaviour
         _safeZone = newValue;
     }
 
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Monster")
+        {
+            this.Endgame();
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {

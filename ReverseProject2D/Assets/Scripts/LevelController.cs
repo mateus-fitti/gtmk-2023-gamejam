@@ -17,7 +17,7 @@ public class LevelController : MonoBehaviour
     private float startTime;
 
 
-    void Awake()
+    void Start()
     {
         SetLevelSounds();
         startTime = Time.time; // Registra o tempo de início da fase

@@ -1194,7 +1194,7 @@ MonoBehaviour:
     mixer: {fileID: 0}
   - name: Monster_Chase
     clip: {fileID: 8300000, guid: ef76ecf7d6866f943ada11add5be75c7, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     loop: 1
     single: 0
@@ -2618,7 +2618,7 @@ Transform:
   m_GameObject: {fileID: 1502436074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4671574, y: 6.5699596, z: -10}
+  m_LocalPosition: {x: 4.681715, y: 6.56815, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14039,7 +14039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776524218}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.4, y: 12.23, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
@@ -14065,7 +14065,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 1543756244}
   m_Follow: {fileID: 1543756244}
   m_Lens:
     FieldOfView: 60
@@ -14550,7 +14550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2284209334022673336, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3405852488665876794, guid: b8d049a22dd252a499f170f3c430c0a6, type: 3}
       propertyPath: m_IsActive
@@ -14647,7 +14647,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 5.5
 --- !u!1 &2133944119
 GameObject:
   m_ObjectHideFlags: 0
