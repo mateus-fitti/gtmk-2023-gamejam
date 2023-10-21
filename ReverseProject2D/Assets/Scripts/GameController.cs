@@ -33,13 +33,16 @@ public class GameController : MonoBehaviour
         {
            // Verifique se o OptionsPanel está ativo
         GameObject optionsPanel = GameObject.Find("OptionsPanel");
+        GameObject secretScreen = GameObject.Find("SecretScreen");
+
+        
         if (optionsPanel != null && optionsPanel.activeSelf)
         {
         // Desative o OptionsPanel
         optionsPanel.SetActive(false);
         UnPauseGame();
         }
-        else
+        else if (secretScreen == null)
         {
         Button pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
 
